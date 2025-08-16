@@ -205,3 +205,8 @@ console.log(false || "Hello");
 // );
 
 // Reduce
+console.log([100, 300, 600].reduce((acc, num) => num + acc, 10));
+
+// Sort
+console.log([2, 6, 8, 10, 15].sort((a, b) => b - a));
+console.log([2, 6, 8, 10, 15].sort((a, b) => a - b));
