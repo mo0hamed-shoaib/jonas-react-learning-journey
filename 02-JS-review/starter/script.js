@@ -143,6 +143,7 @@ function getBook(id) {
   return data.find((d) => d.id === id);
 }
 
+/* ==========================================================
 // All books
 const books = getBooks();
 // console.log(books);
@@ -169,7 +170,7 @@ const updatedBook = {
 };
 console.log(updatedBook);
 
-/* -------------------------------------------------------------------------- */
+// ---------------------------------------------------------------
 
 // Nomral Function (Declaration)
 function getPublicationYear(str) {
@@ -181,6 +182,24 @@ console.log(getPublicationYear(publicationDate));
 const publicationYear = (str) => str.split("-")[0];
 console.log(publicationYear(publicationDate));
 
-/* -------------------------------------------------------------------------- */
+// ---------------------------------------------------------------
 
 // Short Circuiting
+console.log(true && "Hello");
+console.log(false && "Bye");
+
+console.log(true || "Hello");
+console.log(false || "Hello");
+
+========================================================== 
+*/
+
+// Array Methods
+// Map & Filter
+// console.log([2, 4, 6, 8].map((num) => num * 2));
+// console.log([100, 260, 300, 420, 500].filter((num) => num > 300));
+// console.log(
+//   [230, 430, 204, 532, 237, 60]
+//     .filter((num) => num > 200)
+//     .map((num) => num * 10)
+// );
