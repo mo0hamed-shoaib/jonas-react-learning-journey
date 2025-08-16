@@ -168,3 +168,19 @@ const updatedBook = {
   developer: "Jimmy",
 };
 console.log(updatedBook);
+
+/* -------------------------------------------------------------------------- */
+
+// Nomral Function (Declaration)
+function getPublicationYear(str) {
+  return str.split("-")[0];
+}
+console.log(getPublicationYear(publicationDate));
+
+// Arrow Function (Expression)
+const publicationYear = (str) => str.split("-")[0];
+console.log(publicationYear(publicationDate));
+
+/* -------------------------------------------------------------------------- */
+
+// Short Circuiting
