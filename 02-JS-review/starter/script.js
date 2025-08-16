@@ -203,3 +203,5 @@ console.log(false || "Hello");
 //     .filter((num) => num > 200)
 //     .map((num) => num * 10)
 // );
+
+// Reduce
