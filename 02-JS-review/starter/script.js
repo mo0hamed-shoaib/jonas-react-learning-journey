@@ -205,8 +205,25 @@ console.log(false || "Hello");
 // );
 
 // Reduce
-console.log([100, 300, 600].reduce((acc, num) => num + acc, 10));
+// console.log([100, 300, 600].reduce((acc, num) => num + acc, 10));
 
 // Sort
-console.log([2, 6, 8, 10, 15].sort((a, b) => b - a));
-console.log([2, 6, 8, 10, 15].sort((a, b) => a - b));
+// console.log([2, 6, 8, 10, 15].sort((a, b) => b - a));
+// console.log([2, 6, 8, 10, 15].sort((a, b) => a - b));
+
+// ---------------------------------------------------------------
+
+// Promises
+fetch("https://jsonplaceholder.typicode.com/todos")
+  .then((res) => res.json())
+  .then((json) => console.log(json));
+
+// Async/Await
+const getTodos = async function (type = "todos") {
+  const res = await fetch(`https://jsonplaceholder.typicode.com/${type}`);
+  const data = await res.json();
+  console.log(data);
+};
+getTodos("users");
+
+// --------------------------------END-------------------------------
