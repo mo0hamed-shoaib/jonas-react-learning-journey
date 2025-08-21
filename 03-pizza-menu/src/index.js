@@ -1,5 +1,6 @@
 import React, { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
+import "./index.css";
 
 const pizzaData = [
   {
@@ -48,7 +49,7 @@ const pizzaData = [
 
 function App() {
   return (
-    <div>
+    <div className="container">
       <Header />
       <Menu />
       <Footer />
@@ -60,34 +61,30 @@ function Pizza() {
   return (
     <div>
       <img src="pizzas/margherita.jpg" alt="Pizza Margherita" />
-      <h1>Nice Pizza</h1>
+      <h3>Nice Pizza</h3>
       <p>Tomato and mozarella</p>
     </div>
   );
 }
 
 function Header() {
-  const style = {
-    color: "blue",
-    fontSize: "38px",
-    textTransform: "uppercase",
-  };
-
   return (
     <>
-      <h1 style={style}>Jimmy's Pizza Shop</h1>
+      <header className="header">
+        <h1>Jimmy's Pizza Shop</h1>
+      </header>
     </>
   );
 }
 
 function Menu() {
   return (
-    <div>
+    <main className="menu">
       <h2>Our Menu</h2>
       <Pizza />
       <Pizza />
       <Pizza />
-    </div>
+    </main>
   );
 }
 
@@ -96,11 +93,9 @@ function Footer() {
   const isOpen = date >= 9 ? "Open" : "Closed";
 
   return (
-    <>
-      <footer>
-        {date} We are {isOpen}
-      </footer>
-    </>
+    <footer className="footer">
+      {date} We are {isOpen}
+    </footer>
   );
 }
 
