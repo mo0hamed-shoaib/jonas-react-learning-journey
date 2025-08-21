@@ -67,9 +67,15 @@ function Pizza() {
 }
 
 function Header() {
+  const style = {
+    color: "blue",
+    fontSize: "38px",
+    textTransform: "uppercase",
+  };
+
   return (
     <>
-      <h1>Jimmy's Pizza Shop</h1>
+      <h1 style={style}>Jimmy's Pizza Shop</h1>
     </>
   );
 }
