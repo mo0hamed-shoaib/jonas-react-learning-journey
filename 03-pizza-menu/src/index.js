@@ -57,12 +57,15 @@ function App() {
   );
 }
 
-function Pizza() {
+function Pizza({ name, ingredient, photoName, price }) {
   return (
-    <div>
-      <img src="pizzas/margherita.jpg" alt="Pizza Margherita" />
-      <h3>Nice Pizza</h3>
-      <p>Tomato and mozarella</p>
+    <div className="pizza">
+      <img src={photoName} alt={name} />
+      <div>
+        <h3>{name}</h3>
+        <p>{ingredient}</p>
+        <span>${price}</span>
+      </div>
     </div>
   );
 }
@@ -81,9 +84,18 @@ function Menu() {
   return (
     <main className="menu">
       <h2>Our Menu</h2>
-      <Pizza />
-      <Pizza />
-      <Pizza />
+      <Pizza
+        name="Margherita Pizza"
+        ingredient="Tomato and Mozarella"
+        photoName="pizzas/margherita.jpg"
+        price={10}
+      />
+      <Pizza
+        name="Funghi Pizza"
+        ingredient="Tomato and Mushrooms"
+        photoName="pizzas/funghi.jpg"
+        price={13}
+      />
     </main>
   );
 }
