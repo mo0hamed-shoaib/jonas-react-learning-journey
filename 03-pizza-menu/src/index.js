@@ -49,9 +49,9 @@ const pizzaData = [
 function App() {
   return (
     <div>
-      <h1>Hello</h1>
-      <p>This is ReactJS</p>
-      <Pizza />
+      <Header />
+      <Menu />
+      <Footer />
     </div>
   );
 }
@@ -63,6 +63,38 @@ function Pizza() {
       <h1>Nice Pizza</h1>
       <p>Tomato and mozarella</p>
     </div>
+  );
+}
+
+function Header() {
+  return (
+    <>
+      <h1>Jimmy's Pizza Shop</h1>
+    </>
+  );
+}
+
+function Menu() {
+  return (
+    <div>
+      <h2>Our Menu</h2>
+      <Pizza />
+      <Pizza />
+      <Pizza />
+    </div>
+  );
+}
+
+function Footer() {
+  const date = new Date().getHours();
+  const isOpen = date >= 9 ? "Open" : "Closed";
+
+  return (
+    <>
+      <footer>
+        {date} We are {isOpen}
+      </footer>
+    </>
   );
 }
 
