@@ -1,60 +1,62 @@
-import React, { StrictMode } from "react";
-import ReactDOM from "react-dom/client";
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
 import "./index.css";
 
 function App() {
-  return <Card />;
-}
-
-function Card() {
   return (
     <div className="card">
-      <PersonalImage />
-      <FullName />
-      <Bio />
-      <SkillList />
+      <Avatar />
+      <div className="data">
+        <Intro />
+        <SkillList />
+      </div>
     </div>
   );
 }
 
-function PersonalImage() {
-  return <img src="pfp.jpg" alt="Personal" className="personal-image" />;
+function Avatar() {
+  return <img src="pfp.jpg" alt="Mohamed Gamal" className="avatar" />;
 }
 
-function FullName() {
-  return <h2 className="full-name">Mohamed Gamal</h2>;
-}
-
-function Bio() {
+function Intro() {
   return (
-    <p className="bio">
-      Full-stack web developer with hands-on experience building scalable
-      projects and business effecient solutions, with 6-months internship
-      certificate from Information Technology Institute in Egypt
-    </p>
+    <div>
+      <h1>Mohamed Gamal</h1>
+      <p>
+        Full-Stack MERN Developer with experience building responsive front-end
+        interfaces using React.js and JavaScript (ES6+), and developing scalable
+        back-end systems with Node.js, Express.js, and MongoDB. Skilled in
+        crafting RESTful APIs, enhancing user experience with Bootstrap and
+        Tailwind CSS, and delivering clean, maintainable code.
+      </p>
+    </div>
   );
 }
 
 function SkillList() {
   return (
-    <div>
-      <Skill skill="React" />
-      <Skill skill="JavaScript" />
-      <Skill skill="GitHub" />
+    <div className="skill-list">
+      <Skill skill="React" emoji="❤️" bg="aqua" />
+      <Skill skill="JavaScript" emoji="✨" bg="yellow" />
+      <Skill skill="Git" emoji="🔍" bg="orange" />
+      <Skill skill="Figma" emoji="⚡" bg="red" />
     </div>
   );
 }
 
 function Skill(props) {
-  console.log(props);
   return (
-    <div>
-      <div className="skills">{props.skill}</div>
+    <div className="skill" style={{ backgroundColor: props.bg }}>
+      <span>
+        {props.skill} {props.emoji}
+      </span>
     </div>
   );
 }
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const rootElement = document.getElementById("root");
+const root = createRoot(rootElement);
+
 root.render(
   <StrictMode>
     <App />
