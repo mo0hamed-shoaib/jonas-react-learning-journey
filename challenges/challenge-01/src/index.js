@@ -15,7 +15,7 @@ function App() {
 }
 
 function Avatar() {
-  return <img src="pfp.jpg" alt="Mohamed Gamal" className="avatar" />;
+  return <img className="avatar" src="pfp.jpg" alt="My Avatar" />;
 }
 
 function Intro() {
@@ -23,11 +23,8 @@ function Intro() {
     <div>
       <h1>Mohamed Gamal</h1>
       <p>
-        Full-Stack MERN Developer with experience building responsive front-end
-        interfaces using React.js and JavaScript (ES6+), and developing scalable
-        back-end systems with Node.js, Express.js, and MongoDB. Skilled in
-        crafting RESTful APIs, enhancing user experience with Bootstrap and
-        Tailwind CSS, and delivering clean, maintainable code.
+        A Frontend developer with experience building scalable full stack
+        projects, currently learning ReactJS and Next.js from Jonas's course.
       </p>
     </div>
   );
@@ -36,19 +33,19 @@ function Intro() {
 function SkillList() {
   return (
     <div className="skill-list">
-      <Skill skill="React" emoji="❤️" bg="aqua" />
-      <Skill skill="JavaScript" emoji="✨" bg="yellow" />
-      <Skill skill="Git" emoji="🔍" bg="orange" />
-      <Skill skill="Figma" emoji="⚡" bg="red" />
+      <Skill skillName="React.js" bgColor="skyblue" emoji="🌐 " />
+      <Skill skillName="Next.js" bgColor="orange" emoji="⏭️ " />
+      <Skill skillName="JavaScript" bgColor="yellow" emoji="🪝 " />
     </div>
   );
 }
 
 function Skill(props) {
   return (
-    <div className="skill" style={{ backgroundColor: props.bg }}>
+    <div className="skill" style={{ backgroundColor: props.bgColor }}>
       <span>
-        {props.skill} {props.emoji}
+        {props.emoji}
+        {props.skillName}
       </span>
     </div>
   );
