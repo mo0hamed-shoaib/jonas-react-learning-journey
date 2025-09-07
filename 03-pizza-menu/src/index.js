@@ -2,6 +2,7 @@ import React, { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
+// Pizza Data
 const pizzaData = [
   {
     name: "Focaccia",
@@ -57,26 +58,11 @@ function App() {
   );
 }
 
-function Pizza({ name, ingredient, photoName, price }) {
-  return (
-    <div className="pizza">
-      <img src={photoName} alt={name} />
-      <div>
-        <h3>{name}</h3>
-        <p>{ingredient}</p>
-        <span>${price}</span>
-      </div>
-    </div>
-  );
-}
-
 function Header() {
   return (
-    <>
-      <header className="header">
-        <h1>Jimmy's Pizza Shop</h1>
-      </header>
-    </>
+    <header className="header">
+      <h1>Header</h1>
+    </header>
   );
 }
 
@@ -85,28 +71,44 @@ function Menu() {
     <main className="menu">
       <h2>Our Menu</h2>
       <Pizza
-        name="Margherita Pizza"
-        ingredient="Tomato and Mozarella"
-        photoName="pizzas/margherita.jpg"
+        image={"pizzas/focaccia.jpg"}
+        name={"Pizza Focaccia"}
+        ingredient={"Bread with italian olive oil and rosemary"}
         price={10}
       />
       <Pizza
-        name="Funghi Pizza"
-        ingredient="Tomato and Mushrooms"
-        photoName="pizzas/funghi.jpg"
-        price={13}
+        image={"pizzas/funghi.jpg"}
+        name={"Pizza Funghi"}
+        ingredient={"Tomato, mozarella, mushrooms, and onion"}
+        price={12}
       />
     </main>
   );
 }
 
+function Pizza(props) {
+  return (
+    <div className="pizza">
+      <img src={props.image} alt={props.name} />
+      <div>
+        <h3>{props.name}</h3>
+        <p>{props.ingredient}</p>
+        <span>${props.price}</span>
+      </div>
+    </div>
+  );
+}
+
 function Footer() {
-  const date = new Date().getHours();
-  const isOpen = date >= 9 ? "Open" : "Closed";
+  const openTime = 9;
+  const closedTime = 22;
+  const currentTime = new Date().getHours();
+  const isOpen =
+    currentTime >= openTime && currentTime <= closedTime ? "open" : "closed";
 
   return (
     <footer className="footer">
-      {date} We are {isOpen}
+      {currentTime} we are {isOpen}
     </footer>
   );
 }
