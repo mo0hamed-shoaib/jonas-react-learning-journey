@@ -61,7 +61,7 @@ function App() {
 function Header() {
   return (
     <header className="header">
-      <h1>Header</h1>
+      <h1>Jimmy's Pizza</h1>
     </header>
   );
 }
@@ -75,11 +75,17 @@ function Menu() {
       <h2>Our Menu</h2>
 
       {numPizzas > 0 ? (
-        <ul className="pizzas">
-          {pizzaData.map((pizza) => (
-            <Pizza pizzaObject={pizza} key={pizza.name} />
-          ))}
-        </ul>
+        <>
+          <p>
+            Authentic taste with 6 pizzas to choose from! using top materials
+            for a premium experience, only at Jimmy's Pizza
+          </p>
+          <ul className="pizzas">
+            {pizzaData.map((pizza) => (
+              <Pizza pizzaObject={pizza} key={pizza.name} />
+            ))}
+          </ul>
+        </>
       ) : (
         <p>Out of Stock! Check later..</p>
       )}
@@ -109,6 +115,8 @@ function Menu() {
 }
 
 function Pizza({ pizzaObject }) {
+  if (pizzaObject.soldOut) return null;
+
   return (
     <li className="pizza">
       <img src={pizzaObject.photoName} alt={pizzaObject.name} />
@@ -130,16 +138,22 @@ function Footer() {
   return (
     <footer className="footer">
       {isOpen ? (
-        <div className="order">
-          <p>We are open until {closedTime}:00. you can also order online.</p>
-          <button className="btn">Order Now</button>
-        </div>
+        <Order closedTime={closedTime} />
       ) : (
         <p>
           We are closed, we're open from {openTime}:00 to {closedTime}:00.
         </p>
       )}
     </footer>
+  );
+}
+
+function Order({ closedTime }) {
+  return (
+    <div className="order">
+      <p>We are open until {closedTime}:00. you can also order online.</p>
+      <button className="btn">Order Now</button>
+    </div>
   );
 }
 
