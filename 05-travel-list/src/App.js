@@ -7,11 +7,17 @@ const packingList = [
 ];
 
 export default function App() {
+  const [items, setItems] = useState([]);
+
+  function handleAddItems(itemObj) {
+    setItems((items) => [...items, itemObj]);
+  }
+
   return (
     <div className="app">
       <Logo />
-      <Form />
-      <PackingList />
+      <Form onAddItems={handleAddItems} />
+      <PackingList items={items} />
       <Stats />
     </div>
   );
@@ -21,7 +27,7 @@ function Logo() {
   return <h1>Packi App 💼</h1>;
 }
 
-function Form() {
+function Form({ onAddItems }) {
   const [description, setDescription] = useState("");
   const [quantity, setQuantity] = useState(1);
 
@@ -36,7 +42,10 @@ function Form() {
       quantity,
       packed: false,
     };
-    console.log(newItem);
+
+    onAddItems(newItem);
+
+    // console.log(newItem);
 
     setDescription("");
     setQuantity(1);
@@ -66,11 +75,11 @@ function Form() {
   );
 }
 
-function PackingList() {
+function PackingList({ items }) {
   return (
     <div className="list">
       <ul>
-        {packingList.map((i) => (
+        {items.map((i) => (
           <Item key={i.id} itemObject={i} />
         ))}
       </ul>
